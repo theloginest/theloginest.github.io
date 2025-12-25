@@ -1,239 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Developer Resume</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mehran Samavat – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #0f172a; /* slate-900 */
+      --text: #e2e8f0; /* slate-200 */
+      --text-light: #94a3b8; /* slate-400 */
+      --border: #334155; /* slate-700 */
+      --accent: #38bdf8; /* sky-400 */
+      --accent-light: #0ea5e9; /* sky-500 */
+      --card-bg: #1e293b; /* slate-800 */
+      --header-bg: #1e293b; /* همرنگ با کارت‌ها */
+    }
 
-<style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --accent: #38bdf8;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-* {
-    box-sizing: border-box;
-}
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background: linear-gradient(135deg, #020617, #0f172a);
-    color: var(--text);
-}
+    /* Header — مینیمال و یکپارچه */
+    .header {
+      background: var(--header-bg);
+      color: var(--text);
+      padding: 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+    .header .subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .header .contact {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    .header .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    .header .contact a:hover {
+      text-decoration: underline;
+    }
 
-.container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 20px;
-}
+    /* Main Layout */
+    .main {
+      display: flex;
+      gap: 0;
+    }
 
-.card {
-    background: var(--card);
-    border-radius: 18px;
-    padding: 35px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-}
+    @media (min-width: 768px) {
+      .main {
+        gap: 2px;
+      }
+      .sidebar {
+        flex: 0 0 35%;
+        background: #111827;
+        padding: 30px;
+        border-right: 1px solid var(--border);
+      }
+      .content {
+        flex: 0 0 65%;
+        padding: 30px;
+      }
+    }
 
-/* HEADER */
-.header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 30px;
-}
+    @media (max-width: 767px) {
+      .sidebar, .content {
+        padding: 25px;
+      }
+    }
 
-.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #22d3ee);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    font-weight: bold;
-    color: #020617;
-}
+    section {
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 i {
+      font-size: 18px;
+    }
 
-.header h1 {
-    margin: 0;
-    font-size: 36px;
-}
+    .skill-group {
+      margin-bottom: 18px;
+    }
+    .group-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
 
-.header p {
-    margin: 6px 0 0;
-    color: var(--muted);
-}
+    .item {
+      margin-bottom: 24px;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .company {
+      color: var(--accent-light);
+      font-weight: 600;
+    }
+    .date, .location {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .location {
+      margin-top: 4px;
+    }
+    .item p, .item ul {
+      font-size: 14px;
+      margin-top: 10px;
+      color: var(--text);
+    }
+    .item ul {
+      padding-left: 20px;
+    }
+    .item li {
+      margin-bottom: 6px;
+    }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 30px;
-    margin-top: 35px;
-}
-
-/* SECTIONS */
-.section {
-    margin-bottom: 30px;
-}
-
-.section h2 {
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    margin-bottom: 15px;
-}
-
-/* CONTACT */
-.contact div {
-    margin-bottom: 10px;
-    color: var(--muted);
-}
-
-/* SKILLS */
-.skill {
-    margin-bottom: 12px;
-}
-
-.skill span {
-    font-size: 14px;
-}
-
-.bar {
-    height: 6px;
-    background: #1e293b;
-    border-radius: 4px;
-    margin-top: 6px;
-}
-
-.bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), #22d3ee);
-    border-radius: 4px;
-}
-
-/* EXPERIENCE */
-.job {
-    margin-bottom: 25px;
-}
-
-.job h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.job small {
-    color: var(--muted);
-}
-
-.job p {
-    margin-top: 8px;
-    line-height: 1.6;
-    color: #cbd5f5;
-}
-</style>
+    .footer-note {
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+  </style>
 </head>
-
 <body>
 
 <div class="container">
-    <div class="card">
-
-        <div class="header">
-            <div class="avatar">JS</div>
-            <div>
-                <h1>John Smith</h1>
-                <p>Senior Software Developer</p>
-            </div>
-        </div>
-
-        <div class="grid">
-
-            <!-- LEFT -->
-            <div>
-
-                <div class="section contact">
-                    <h2>Contact</h2>
-                    <div>Email: john@email.com</div>
-                    <div>GitHub: github.com/johnsmith</div>
-                    <div>LinkedIn: linkedin.com/in/johnsmith</div>
-                </div>
-
-                <div class="section">
-                    <h2>Skills</h2>
-
-                    <div class="skill">
-                        <span>C / C++</span>
-                        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
-                    </div>
-
-                    <div class="skill">
-                        <span>C# / .NET</span>
-                        <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                    </div>
-
-                    <div class="skill">
-                        <span>Python</span>
-                        <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
-                    </div>
-
-                    <div class="skill">
-                        <span>Embedded Systems</span>
-                        <div class="bar"><div class="bar-fill" style="width:88%"></div></div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- RIGHT -->
-            <div>
-
-                <div class="section">
-                    <h2>Profile</h2>
-                    <p>
-                        Experienced software developer with strong background
-                        in backend systems and embedded development. Focused
-                        on clean architecture, performance, and reliability.
-                    </p>
-                </div>
-
-                <div class="section">
-                    <h2>Experience</h2>
-
-                    <div class="job">
-                        <h3>Senior Software Developer – Company Name</h3>
-                        <small>2021 – Present</small>
-                        <p>
-                            Designed and implemented scalable systems,
-                            worked on embedded firmware, optimized performance,
-                            and collaborated with cross-functional teams.
-                        </p>
-                    </div>
-
-                    <div class="job">
-                        <h3>Software Developer – Company Name</h3>
-                        <small>2018 – 2021</small>
-                        <p>
-                            Developed applications, fixed critical bugs,
-                            and participated in system architecture decisions.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+  <!-- Header - مینیمال و یکپارچه -->
+  <div class="header">
+    <h1>Mehran Samavat</h1>
+    <div class="subtitle">Medior IT Engineer</div>
+    <div class="contact">
+      <a href="mailto:theloginest@gmail.com">theloginest@gmail.com</a> •
+      Tehran, Iran •
+      <a href="https://linkedin.com/in/theloginest" target="_blank">LinkedIn</a> •
+      <a href="https://github.com/theloginest" target="_blank">GitHub</a> •
+      <a href="https://theloginest.github.io" target="_blank">Portfolio</a>
     </div>
+  </div>
+
+  <!-- Content -->
+  <div class="main">
+    <!-- Sidebar (Left) -->
+    <div class="sidebar">
+      <!-- Skills -->
+      <section>
+        <h2><i class="fas fa-tools"></i> Skills</h2>
+        <div class="skill-group">
+          <div class="group-title">Backend & Database</div>
+          <div class="skills">
+            <span class="skill">ASP.NET Core</span>
+            <span class="skill">RESTful APIs</span>
+            <span class="skill">SQL Server</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">Clean Architecture</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="group-title">Embedded & IoT</div>
+          <div class="skills">
+            <span class="skill">STM32</span>
+            <span class="skill">ESP32/8266</span>
+            <span class="skill">UART / I2C / SPI</span>
+            <span class="skill">Device-to-Server</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="group-title">Frontend / Mobile</div>
+          <div class="skills">
+            <span class="skill">Flutter (Learning)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="group-title">Tools</div>
+          <div class="skills">
+            <span class="skill">Git</span>
+            <span class="skill">Docker</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="title">BSc in Electronic Science</div>
+              <div class="company">Technical & Vocational University</div>
+            </div>
+            <div class="date">2022 – 2026 (Expected)</div>
+          </div>
+          <div class="location">Hamedan, Iran</div>
+          <p style="font-size:13px; color:var(--text-light);">
+            GPA: — • 3rd place in University Idea-Fan Event • 
+            Vice Secretary, Electronics Student Association
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Main Content (Right) -->
+    <div class="content">
+      <!-- Professional Summary -->
+      <section>
+        <h2><i class="fas fa-user"></i> Professional Summary</h2>
+        <p>
+          Mid-level Backend Developer with strong experience in ASP.NET, specializing in building reliable and scalable server-side applications. Proficient in relational databases (SQL Server, MySQL) and experienced in embedded systems using STM32 microcontrollers. Currently expanding into Flutter to deliver full-stack IoT solutions with modern UIs.
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section>
+        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="title">Medior Backend & IoT Developer</div>
+              <div class="company">Pajal Electronic</div>
+            </div>
+            <div class="date">Sep 2024 – Present</div>
+          </div>
+          <div class="location">Tehran, Iran</div>
+          <ul>
+            <li>Develop and maintain RESTful APIs and backend services using ASP.NET Core.</li>
+            <li>Design and manage relational databases (SQL Server, MySQL) with migrations.</li>
+            <li>Implement authentication and identity microservices.</li>
+            <li>Lead embedded development on STM32/ESP platforms for industrial IoT projects.</li>
+            <li>Integrate hardware devices with cloud/backend systems for end-to-end solutions.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="title">Junior Embedded & IoT Developer</div>
+              <div class="company">Rayan Electronic</div>
+            </div>
+            <div class="date">Sep 2023</div>
+          </div>
+          <div class="location">Hamedan, Iran</div>
+          <ul>
+            <li>Hands-on development with STM32, Arduino, and ESP modules.</li>
+            <li>Worked with UART, I2C, SPI, and sensor integration.</li>
+            <li>Rebuilt industrial IoT prototypes under mentorship.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Updated: Dec 2025 • Dark Mode • Optimized for readability
+  </div>
 </div>
 
 </body>
-</html
+</html>
