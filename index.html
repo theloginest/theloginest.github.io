@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Developer Resume</title>
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --accent: #38bdf8;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: var(--text);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 30px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #22d3ee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #020617;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+/* SECTIONS */
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* CONTACT */
+.contact div {
+    margin-bottom: 10px;
+    color: var(--muted);
+}
+
+/* SKILLS */
+.skill {
+    margin-bottom: 12px;
+}
+
+.skill span {
+    font-size: 14px;
+}
+
+.bar {
+    height: 6px;
+    background: #1e293b;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #22d3ee);
+    border-radius: 4px;
+}
+
+/* EXPERIENCE */
+.job {
+    margin-bottom: 25px;
+}
+
+.job h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.job small {
+    color: var(--muted);
+}
+
+.job p {
+    margin-top: 8px;
+    line-height: 1.6;
+    color: #cbd5f5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <div class="header">
+            <div class="avatar">JS</div>
+            <div>
+                <h1>John Smith</h1>
+                <p>Senior Software Developer</p>
+            </div>
+        </div>
+
+        <div class="grid">
+
+            <!-- LEFT -->
+            <div>
+
+                <div class="section contact">
+                    <h2>Contact</h2>
+                    <div>Email: john@email.com</div>
+                    <div>GitHub: github.com/johnsmith</div>
+                    <div>LinkedIn: linkedin.com/in/johnsmith</div>
+                </div>
+
+                <div class="section">
+                    <h2>Skills</h2>
+
+                    <div class="skill">
+                        <span>C / C++</span>
+                        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span>C# / .NET</span>
+                        <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span>Python</span>
+                        <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+                    </div>
+
+                    <div class="skill">
+                        <span>Embedded Systems</span>
+                        <div class="bar"><div class="bar-fill" style="width:88%"></div></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div>
+
+                <div class="section">
+                    <h2>Profile</h2>
+                    <p>
+                        Experienced software developer with strong background
+                        in backend systems and embedded development. Focused
+                        on clean architecture, performance, and reliability.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>Experience</h2>
+
+                    <div class="job">
+                        <h3>Senior Software Developer – Company Name</h3>
+                        <small>2021 – Present</small>
+                        <p>
+                            Designed and implemented scalable systems,
+                            worked on embedded firmware, optimized performance,
+                            and collaborated with cross-functional teams.
+                        </p>
+                    </div>
+
+                    <div class="job">
+                        <h3>Software Developer – Company Name</h3>
+                        <small>2018 – 2021</small>
+                        <p>
+                            Developed applications, fixed critical bugs,
+                            and participated in system architecture decisions.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html
