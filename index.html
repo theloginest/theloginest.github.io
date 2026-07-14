@@ -1,319 +1,1187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mehran Samavat – Resume</title>
+  <title>Mehran Samavat – Resume | IT Engineer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Resume of Mehran Samavat - IT Engineer specializing in ASP.NET Core, IoT, Machine Learning, and Software Testing.">
+  <meta name="keywords" content="Mehran Samavat, ASP.NET Core, IoT, Machine Learning, ML.NET, Load Testing, Backend Developer">
+  <meta name="author" content="Mehran Samavat">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mehran Samavat – Resume">
+  <meta property="og:description" content="IT Engineer | ASP.NET Core, IoT & ML Developer">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://theloginest.github.io">
+  <meta property="og:image" content="https://theloginest.github.io/profile.webp">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
-    :root {
-      --bg: #0f172a; /* slate-900 */
-      --text: #e2e8f0; /* slate-200 */
-      --text-light: #94a3b8; /* slate-400 */
-      --border: #334155; /* slate-700 */
-      --accent: #38bdf8; /* sky-400 */
-      --accent-light: #0ea5e9; /* sky-500 */
-      --card-bg: #1e293b; /* slate-800 */
-      --header-bg: #1e293b; /* همرنگ با کارت‌ها */
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: #334155;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --sidebar-bg: #1e293b;
+      --card-bg: #1e293b;
+      --section-bg: rgba(30, 41, 59, 0.5);
+      --divider: #475569;
+    }
+    
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #cbd5e1;
+      --accent: #0284c7;
+      --accent-dark: #0369a1;
+      --sidebar-bg: #ffffff;
+      --card-bg: #ffffff;
+      --section-bg: #f1f5f9;
+      --divider: #e2e8f0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
       color: var(--text);
       line-height: 1.6;
-      padding: 20px;
+      padding: 30px 20px;
+      min-height: 100vh;
     }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: white;
+      padding: 8px 16px;
+      z-index: 100;
+    }
+    .skip-link:focus { top: 0; }
 
     .container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
       background: var(--card-bg);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    /* Header — مینیمال و یکپارچه */
-    .header {
-      background: var(--header-bg);
-      color: var(--text);
-      padding: 40px 30px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: white;
-    }
-    .header .subtitle {
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .header .contact {
-      font-size: 14px;
-      color: var(--text-light);
-    }
-    .header .contact a {
-      color: var(--accent);
-      text-decoration: none;
-      margin: 0 6px;
-    }
-    .header .contact a:hover {
-      text-decoration: underline;
-    }
-
-    /* Main Layout */
-    .main {
+    /* Main Layout - Two Column */
+    .resume-wrapper {
       display: flex;
-      gap: 0;
+      min-height: 1000px;
     }
 
-    @media (min-width: 768px) {
-      .main {
-        gap: 2px;
-      }
-      .sidebar {
-        flex: 0 0 35%;
-        background: #111827;
-        padding: 30px;
-        border-right: 1px solid var(--border);
-      }
-      .content {
-        flex: 0 0 65%;
-        padding: 30px;
-      }
+    /* Left Sidebar */
+    aside.sidebar {
+      width: 35%;
+      background: var(--sidebar-bg);
+      padding: 40px 30px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
     }
 
-    @media (max-width: 767px) {
-      .sidebar, .content {
-        padding: 25px;
-      }
+    [dir="rtl"] aside.sidebar {
+      border-right: none;
+      border-left: 1px solid var(--border);
     }
 
-    section {
-      margin-bottom: 28px;
+    /* Profile Section */
+    .profile-section {
+      text-align: center;
     }
-    h2 {
-      font-size: 20px;
+
+    .profile-pic-container {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+
+    .name-section {
+      margin-bottom: 10px;
+    }
+
+    .name-section h1 {
+      font-size: 26px;
       font-weight: 700;
-      margin-bottom: 16px;
+      color: var(--text);
+      margin-bottom: 5px;
+      line-height: 1.2;
+    }
+
+    .name-section .title {
+      font-size: 15px;
       color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Contact Info */
+    .contact-section h3,
+    .skills-section h3,
+    .education-section h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    h2 i {
-      font-size: 18px;
+
+    .contact-section h3 i,
+    .skills-section h3 i,
+    .education-section h3 i {
+      color: var(--accent);
     }
 
-    .skill-group {
-      margin-bottom: 18px;
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .group-title {
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .contact-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    /* Skills */
+    .skills-section {
+      flex: 1;
+    }
+
+    .skill-category {
+      margin-bottom: 20px;
+    }
+
+    .skill-category-title {
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 8px;
       color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .skills {
+
+    .skill-category-title i {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-    }
-    .skill {
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      gap: 6px;
     }
 
-    .item {
-      margin-bottom: 24px;
+    .skill-tag {
+      background: var(--section-bg);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
     }
-    .item-header {
+
+    .skill-tag:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Education */
+    .education-item {
+      margin-bottom: 15px;
+    }
+
+    .education-item .degree {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .education-item .school {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .education-item .year {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 5px;
+    }
+
+    .education-item .details {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Main Content */
+    main.content {
+      width: 65%;
+      padding: 40px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* Section Styling */
+    .main-section {
+      background: var(--section-bg);
+      padding: 25px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    [dir="rtl"] .main-section {
+      border-left: none;
+      border-right: 3px solid var(--accent);
+    }
+
+    .main-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .main-section h2 i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text);
+      text-align: justify;
+    }
+
+    /* Experience Items */
+    .experience-item {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-header {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-    .title {
-      font-weight: 600;
-      font-size: 16px;
-    }
-    .company {
-      color: var(--accent-light);
-      font-weight: 600;
-    }
-    .date, .location {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .location {
-      margin-top: 4px;
-    }
-    .item p, .item ul {
-      font-size: 14px;
-      margin-top: 10px;
-      color: var(--text);
-    }
-    .item ul {
-      padding-left: 20px;
-    }
-    .item li {
-      margin-bottom: 6px;
+      gap: 10px;
     }
 
-    .footer-note {
-      text-align: center;
-      padding: 12px;
+    .exp-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .exp-date {
       font-size: 13px;
       color: var(--text-light);
-      border-top: 1px solid var(--border);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .exp-location {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .exp-location i {
+      font-size: 10px;
+    }
+
+    .exp-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-list li {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    [dir="rtl"] .exp-list li {
+      padding-left: 0;
+      padding-right: 18px;
+    }
+
+    .exp-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    [dir="rtl"] .exp-list li::before {
+      left: auto;
+      right: 0;
+    }
+
+    /* Control Buttons */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    [dir="rtl"] .controls {
+      right: auto;
+      left: 20px;
+    }
+
+    .control-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--sidebar-bg);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .control-btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .resume-wrapper {
+        flex-direction: column;
+      }
+      
+      aside.sidebar,
+      main.content {
+        width: 100%;
+      }
+      
+      aside.sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .name-section h1 {
+        font-size: 22px;
+      }
+    }
+
+    /* ========================================
+       PRINT STYLES - PDF EXPORT (A4 Portrait)
+       Optimized for Scale 100%
+       ======================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+      
+      body {
+        background: white !important;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: white !important;
+      }
+      
+      .controls {
+        display: none !important;
+      }
+      
+      .skip-link {
+        display: none !important;
+      }
+      
+      .resume-wrapper {
+        display: flex !important;
+        width: 100%;
+        min-height: auto;
+        page-break-inside: avoid;
+      }
+      
+      aside.sidebar {
+        width: 35% !important;
+        background: #f1f5f9 !important;
+        padding: 12mm 8mm !important;
+        border-right: 1px solid #cbd5e1 !important;
+        gap: 12px !important;
+        page-break-inside: avoid;
+      }
+      
+      [dir="rtl"] aside.sidebar {
+        border-right: none !important;
+        border-left: 1px solid #cbd5e1 !important;
+      }
+      
+      .profile-pic {
+        width: 70px !important;
+        height: 70px !important;
+        border: 2px solid #0284c7 !important;
+        box-shadow: none !important;
+      }
+      
+      .profile-pic-container {
+        margin-bottom: 8px !important;
+      }
+      
+      .name-section h1 {
+        font-size: 16px !important;
+        color: #1e293b !important;
+      }
+      
+      .name-section .title {
+        font-size: 11px !important;
+        color: #0284c7 !important;
+      }
+      
+      .contact-section h3,
+      .skills-section h3,
+      .education-section h3 {
+        font-size: 12px !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 3px !important;
+        border-bottom: 2px solid #0284c7 !important;
+        color: #1e293b !important;
+      }
+      
+      .contact-section h3 i,
+      .skills-section h3 i,
+      .education-section h3 i {
+        color: #0284c7 !important;
+        font-size: 11px !important;
+      }
+      
+      .contact-list {
+        gap: 5px !important;
+      }
+      
+      .contact-item {
+        font-size: 9px !important;
+        color: #475569 !important;
+      }
+      
+      .contact-item i {
+        color: #0284c7 !important;
+        font-size: 9px !important;
+      }
+      
+      .contact-item a {
+        color: #475569 !important;
+      }
+      
+      .skills-section {
+        flex: 0 !important;
+      }
+      
+      .skill-category {
+        margin-bottom: 8px !important;
+      }
+      
+      .skill-category-title {
+        font-size: 9px !important;
+        margin-bottom: 4px !important;
+      }
+      
+      .skill-category-title i {
+        font-size: 8px !important;
+      }
+      
+      .skill-tags {
+        gap: 3px !important;
+      }
+      
+      .skill-tag {
+        background: #e0f2fe !important;
+        color: #0284c7 !important;
+        padding: 2px 5px !important;
+        font-size: 8px !important;
+        border: 1px solid #bae6fd !important;
+      }
+      
+      .education-item {
+        margin-bottom: 6px !important;
+      }
+      
+      .education-item .degree {
+        font-size: 10px !important;
+        color: #1e293b !important;
+      }
+      
+      .education-item .school {
+        font-size: 9px !important;
+        color: #0284c7 !important;
+      }
+      
+      .education-item .year {
+        font-size: 8px !important;
+        color: #64748b !important;
+      }
+      
+      .education-item .details {
+        font-size: 8px !important;
+        color: #64748b !important;
+      }
+      
+      main.content {
+        width: 65% !important;
+        padding: 12mm 10mm !important;
+        gap: 12px !important;
+        background: white !important;
+        page-break-inside: avoid;
+      }
+      
+      .main-section {
+        background: #f8fafc !important;
+        padding: 10px !important;
+        border-radius: 4px !important;
+        border-left: 2px solid #0284c7 !important;
+        page-break-inside: avoid;
+      }
+      
+      [dir="rtl"] .main-section {
+        border-left: none !important;
+        border-right: 2px solid #0284c7 !important;
+      }
+      
+      .main-section h2 {
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+        color: #1e293b !important;
+      }
+      
+      .main-section h2 i {
+        color: #0284c7 !important;
+        font-size: 13px !important;
+      }
+      
+      .summary-text {
+        font-size: 9px !important;
+        line-height: 1.5 !important;
+        color: #1e293b !important;
+        text-align: justify !important;
+      }
+      
+      .experience-item {
+        margin-bottom: 10px !important;
+        padding-bottom: 10px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        page-break-inside: avoid;
+      }
+      
+      .experience-item:last-child {
+        border-bottom: none !important;
+      }
+      
+      .exp-header {
+        margin-bottom: 4px !important;
+      }
+      
+      .exp-title {
+        font-size: 11px !important;
+        color: #1e293b !important;
+      }
+      
+      .exp-company {
+        font-size: 10px !important;
+        color: #0284c7 !important;
+      }
+      
+      .exp-date {
+        font-size: 9px !important;
+        color: #64748b !important;
+      }
+      
+      .exp-location {
+        font-size: 8px !important;
+        color: #64748b !important;
+        margin-bottom: 5px !important;
+      }
+      
+      .exp-list li {
+        font-size: 9px !important;
+        color: #1e293b !important;
+        margin-bottom: 3px !important;
+        padding-left: 10px !important;
+        line-height: 1.4 !important;
+      }
+      
+      [dir="rtl"] .exp-list li {
+        padding-left: 0 !important;
+        padding-right: 10px !important;
+      }
+      
+      .exp-list li::before {
+        color: #0284c7 !important;
+      }
+      
+      /* Prevent page breaks in important sections */
+      .profile-section,
+      .contact-section,
+      .education-section {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* ========================================
+       DARK MODE PRINT STYLES
+       ======================================== */
+    @media print {
+      body.print-dark {
+        background: #0f172a !important;
+      }
+      
+      body.print-dark .container {
+        background: #1e293b !important;
+      }
+      
+      body.print-dark aside.sidebar {
+        background: #1e293b !important;
+        border-right-color: #334155 !important;
+      }
+      
+      body.print-dark [dir="rtl"] aside.sidebar {
+        border-left-color: #334155 !important;
+      }
+      
+      body.print-dark .name-section h1 {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .name-section .title {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .contact-section h3,
+      body.print-dark .skills-section h3,
+      body.print-dark .education-section h3 {
+        color: #e2e8f0 !important;
+        border-bottom-color: #38bdf8 !important;
+      }
+      
+      body.print-dark .contact-section h3 i,
+      body.print-dark .skills-section h3 i,
+      body.print-dark .education-section h3 i {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .contact-item {
+        color: #94a3b8 !important;
+      }
+      
+      body.print-dark .contact-item i {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .contact-item a {
+        color: #94a3b8 !important;
+      }
+      
+      body.print-dark .skill-category-title {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .skill-category-title i {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .skill-tag {
+        background: rgba(56, 189, 248, 0.15) !important;
+        color: #38bdf8 !important;
+        border-color: rgba(56, 189, 248, 0.2) !important;
+      }
+      
+      body.print-dark .education-item .degree {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .education-item .school {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .education-item .year,
+      body.print-dark .education-item .details {
+        color: #94a3b8 !important;
+      }
+      
+      body.print-dark main.content {
+        background: #1e293b !important;
+      }
+      
+      body.print-dark .main-section {
+        background: rgba(30, 41, 59, 0.5) !important;
+        border-left-color: #38bdf8 !important;
+      }
+      
+      body.print-dark [dir="rtl"] .main-section {
+        border-right-color: #38bdf8 !important;
+      }
+      
+      body.print-dark .main-section h2 {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .main-section h2 i {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .summary-text {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .exp-title {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .exp-company {
+        color: #0ea5e9 !important;
+      }
+      
+      body.print-dark .exp-date,
+      body.print-dark .exp-location {
+        color: #94a3b8 !important;
+      }
+      
+      body.print-dark .exp-list li {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .exp-list li::before {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .experience-item {
+        border-bottom-color: #475569 !important;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .main-section, .profile-section, .contact-section, .skills-section, .education-section {
+      animation: fadeIn 0.6s ease-out;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- Header - مینیمال و یکپارچه -->
-  <div class="header">
-    <h1>Mehran Samavat</h1>
-    <div class="subtitle">Medior IT Engineer</div>
-    <div class="contact">
-      <a href="mailto:theloginest@gmail.com">theloginest@gmail.com</a> •
-      Tehran, Iran •
-      <a href="https://linkedin.com/in/theloginest" target="_blank">LinkedIn</a> •
-      <a href="https://github.com/theloginest" target="_blank">GitHub</a> •
-      <a href="https://theloginest.github.io" target="_blank">Portfolio</a>
-    </div>
-  </div>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- Content -->
-  <div class="main">
-    <!-- Sidebar (Left) -->
-    <div class="sidebar">
+<div class="container">
+  <div class="resume-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Profile -->
+      <div class="profile-section">
+        <div class="profile-pic-container">
+          <img src="profile.webp" alt="Mehran Samavat" class="profile-pic">
+        </div>
+        <div class="name-section">
+          <h1 data-en="Mehran Samavat" data-fa="مهران سماوت">Mehran Samavat</h1>
+          <div class="title" data-en="Medior IT Engineer" data-fa="مهندس IT">Medior IT Engineer</div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-section">
+        <h3><i class="fas fa-address-card"></i> <span data-en="Contact" data-fa="تماس با من">Contact</span></h3>
+        <div class="contact-list">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:theloginest@gmail.com">theloginest@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://linkedin.com/in/theloginest" target="_blank" rel="noopener">linkedin.com/in/theloginest</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/theloginest" target="_blank" rel="noopener">github.com/theloginest</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-globe"></i>
+            <a href="https://theloginest.github.io" target="_blank" rel="noopener">theloginest.github.io</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Skills -->
-      <section>
-        <h2><i class="fas fa-tools"></i> Skills</h2>
-        <div class="skill-group">
-          <div class="group-title">Backend & Database</div>
-          <div class="skills">
-            <span class="skill">ASP.NET Core</span>
-            <span class="skill">RESTful APIs</span>
-            <span class="skill">SQL Server</span>
-            <span class="skill">MySQL</span>
-            <span class="skill">Clean Architecture</span>
+      <div class="skills-section">
+        <h3><i class="fas fa-code"></i> <span data-en="Technical Skills" data-fa="مهارت‌های فنی">Technical Skills</span></h3>
+        
+        <div class="skill-category">
+          <div class="skill-category-title">
+            <i class="fas fa-server"></i>
+            <span data-en="Backend & Database" data-fa="بک‌اند و دیتابیس">Backend & Database</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">ASP.NET Core</span>
+            <span class="skill-tag">RESTful API</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag" data-en="Clean Architecture" data-fa="Clean Architecture">Clean Architecture</span>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="group-title">Embedded & IoT</div>
-          <div class="skills">
-            <span class="skill">STM32</span>
-            <span class="skill">ESP32/8266</span>
-            <span class="skill">UART / I2C / SPI</span>
-            <span class="skill">Device-to-Server</span>
+
+        <div class="skill-category">
+          <div class="skill-category-title">
+            <i class="fas fa-brain"></i>
+            <span data-en="Machine Learning" data-fa="یادگیری ماشین">Machine Learning</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">ML.NET</span>
+            <span class="skill-tag">Microsoft.ML</span>
+            <span class="skill-tag" data-en="Data Analysis" data-fa="تحلیل داده">Data Analysis</span>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="group-title">Frontend / Mobile</div>
-          <div class="skills">
-            <span class="skill">Flutter (Learning)</span>
+
+        <div class="skill-category">
+          <div class="skill-category-title">
+            <i class="fas fa-vial"></i>
+            <span data-en="Testing & QA" data-fa="تست و QA">Testing & QA</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" data-en="Load Testing" data-fa="Load Testing">Load Testing</span>
+            <span class="skill-tag" data-en="Stress Testing" data-fa="Stress Testing">Stress Testing</span>
+            <span class="skill-tag" data-en="Performance Testing" data-fa="Performance Testing">Performance Testing</span>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="group-title">Tools</div>
-          <div class="skills">
-            <span class="skill">Git</span>
-            <span class="skill">Docker</span>
+
+        <div class="skill-category">
+          <div class="skill-category-title">
+            <i class="fas fa-microchip"></i>
+            <span data-en="Embedded & IoT" data-fa="امبدد و IoT">Embedded & IoT</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">STM32</span>
+            <span class="skill-tag">ESP32/8266</span>
+            <span class="skill-tag">UART/I2C/SPI</span>
           </div>
         </div>
-      </section>
+
+        <div class="skill-category">
+          <div class="skill-category-title">
+            <i class="fas fa-tools"></i>
+            <span data-en="Tools" data-fa="ابزارها">Tools</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+          </div>
+        </div>
+      </div>
 
       <!-- Education -->
-      <section>
-        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="item">
-          <div class="item-header">
-            <div>
-              <div class="title">BSc in Electronic Science</div>
-              <div class="company">Technical & Vocational University</div>
-            </div>
-            <div class="date">2022 – 2026 (Expected)</div>
-          </div>
-          <div class="location">Hamedan, Iran</div>
-          <p style="font-size:13px; color:var(--text-light);">
-            GPA: — • 3rd place in University Idea-Fan Event • 
-            Vice Secretary, Electronics Student Association
-          </p>
+      <div class="education-section">
+        <h3><i class="fas fa-graduation-cap"></i> <span data-en="Education" data-fa="تحصیلات">Education</span></h3>
+        <div class="education-item">
+          <div class="degree" data-en="BSc in Electronic Science" data-fa="کارشناسی علوم الکترونیک">BSc in Electronic Science</div>
+          <div class="school" data-en="Technical & Vocational University" data-fa="دانشگاه فنی و حرفه‌ای">Technical & Vocational University</div>
+          <div class="year">2022 - 2026</div>
+          <div class="details" data-en="3rd place in Idea-Fan Event • Vice Secretary of Electronics Association" data-fa="رتبه ۳ ایده‌فن دانشگاه • نایب‌دبیر انجمن الکترونیک">3rd place in Idea-Fan Event • Vice Secretary of Electronics Association</div>
         </div>
-      </section>
-    </div>
+      </div>
+    </aside>
 
-    <!-- Main Content (Right) -->
-    <div class="content">
-      <!-- Professional Summary -->
-      <section>
-        <h2><i class="fas fa-user"></i> Professional Summary</h2>
-        <p>
-          Mid-level Backend Developer with strong experience in ASP.NET, specializing in building reliable and scalable server-side applications. Proficient in relational databases (SQL Server, MySQL) and experienced in embedded systems using STM32 microcontrollers. Currently expanding into Flutter to deliver full-stack IoT solutions with modern UIs.
+    <!-- Main Content -->
+    <main class="content" id="main-content">
+      <!-- Summary -->
+      <section class="main-section">
+        <h2><i class="fas fa-user"></i> <span data-en="About Me" data-fa="درباره من">About Me</span></h2>
+        <p class="summary-text" 
+           data-en="Medior Backend Developer with 2+ years of experience in ASP.NET Core, specializing in building scalable server-side applications and RESTful APIs. Strong background in database design (SQL Server, MySQL) and embedded systems (STM32). Experienced in software quality assurance with focus on load and stress testing. Currently expanding expertise in Machine Learning using ML.NET to develop intelligent, data-driven solutions."
+           data-fa="توسعه‌دهنده بک‌اند با بیش از ۲ سال تجربه در ASP.NET Core، متخصص در ساخت اپلیکیشن‌های سمت سرور مقیاس‌پذیر و RESTful API. تسلط بر طراحی دیتابیس (SQL Server, MySQL) و سیستم‌های امبدد (STM32). تجربه در کنترل کیفیت نرم‌افزار با تمرکز بر تست بار و فشار. در حال حاضر در حال توسعه مهارت در یادگیری ماشین با ML.NET برای ساخت راه‌حل‌های هوشمند.">
+          Medior Backend Developer with 2+ years of experience in ASP.NET Core, specializing in building scalable server-side applications and RESTful APIs. Strong background in database design (SQL Server, MySQL) and embedded systems (STM32). Experienced in software quality assurance with focus on load and stress testing. Currently expanding expertise in Machine Learning using ML.NET to develop intelligent, data-driven solutions.
         </p>
       </section>
 
       <!-- Experience -->
-      <section>
-        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-
-        <div class="item">
-          <div class="item-header">
+      <section class="main-section">
+        <h2><i class="fas fa-briefcase"></i> <span data-en="Work Experience" data-fa="سوابق شغلی">Work Experience</span></h2>
+        
+        <div class="experience-item">
+          <div class="exp-header">
             <div>
-              <div class="title">Medior Backend & IoT Developer</div>
-              <div class="company">Pajal Electronic</div>
+              <div class="exp-title" data-en="Medior Backend & IoT Developer" data-fa="توسعه‌دهنده بک‌اند و IoT">Medior Backend & IoT Developer</div>
+              <div class="exp-company" data-en="Pajal Electronic" data-fa="پژال الکترونیک">Pajal Electronic</div>
             </div>
-            <div class="date">Sep 2024 – Present</div>
+            <div class="exp-date">
+              <time datetime="2024-09">Sep 2024</time> - <span data-en="Present" data-fa="اکنون">Present</span>
+            </div>
           </div>
-          <div class="location">Tehran, Iran</div>
-          <ul>
-            <li>Develop and maintain RESTful APIs and backend services using ASP.NET Core.</li>
-            <li>Design and manage relational databases (SQL Server, MySQL) with migrations.</li>
-            <li>Implement authentication and identity microservices.</li>
-            <li>Lead embedded development on STM32/ESP platforms for industrial IoT projects.</li>
-            <li>Integrate hardware devices with cloud/backend systems for end-to-end solutions.</li>
+          <div class="exp-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</span>
+          </div>
+          <ul class="exp-list">
+            <li data-en="Develop and maintain RESTful APIs and backend services using ASP.NET Core"
+                data-fa="توسعه و نگهداری RESTful API و سرویس‌های بک‌اند با ASP.NET Core">
+              Develop and maintain RESTful APIs and backend services using ASP.NET Core
+            </li>
+            <li data-en="Design and manage relational databases with Entity Framework migrations"
+                data-fa="طراحی و مدیریت دیتابیس‌های رابطه‌ای با Entity Framework">
+              Design and manage relational databases with Entity Framework migrations
+            </li>
+            <li data-en="Implement authentication and identity microservices"
+                data-fa="پیاده‌سازی میکروسرویس‌های احراز هویت و Identity">
+              Implement authentication and identity microservices
+            </li>
+            <li data-en="Lead embedded development on STM32/ESP platforms for industrial IoT"
+                data-fa="رهبری توسعه امبدد روی پلتفرم‌های STM32/ESP برای IoT صنعتی">
+              Lead embedded development on STM32/ESP platforms for industrial IoT
+            </li>
+            <li data-en="Perform load testing and stress testing to ensure application performance"
+                data-fa="انجام تست بار و فشار برای اطمینان از عملکرد اپلیکیشن">
+              Perform load testing and stress testing to ensure application performance
+            </li>
           </ul>
         </div>
 
-        <div class="item">
-          <div class="item-header">
+        <div class="experience-item">
+          <div class="exp-header">
             <div>
-              <div class="title">Junior Embedded & IoT Developer</div>
-              <div class="company">Rayan Electronic</div>
+              <div class="exp-title" data-en="Junior Embedded & IoT Developer" data-fa="توسعه‌دهنده امبدد و IoT">Junior Embedded & IoT Developer</div>
+              <div class="exp-company" data-en="Rayan Electronic" data-fa="رایان الکترونیک">Rayan Electronic</div>
             </div>
-            <div class="date">Sep 2023</div>
+            <div class="exp-date">
+              <time datetime="2023-09">Sep 2023</time> - <time datetime="2024-08">Aug 2024</time>
+            </div>
           </div>
-          <div class="location">Hamedan, Iran</div>
-          <ul>
-            <li>Hands-on development with STM32, Arduino, and ESP modules.</li>
-            <li>Worked with UART, I2C, SPI, and sensor integration.</li>
-            <li>Rebuilt industrial IoT prototypes under mentorship.</li>
+          <div class="exp-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span data-en="Hamedan, Iran" data-fa="همدان، ایران">Hamedan, Iran</span>
+          </div>
+          <ul class="exp-list">
+            <li data-en="Hands-on development with STM32, Arduino, and ESP modules"
+                data-fa="توسعه عملی با ماژول‌های STM32، Arduino و ESP">
+              Hands-on development with STM32, Arduino, and ESP modules
+            </li>
+            <li data-en="Work with UART, I2C, SPI protocols and sensor integration"
+                data-fa="کار با پروتکل‌های UART، I2C، SPI و یکپارچه‌سازی سنسورها">
+              Work with UART, I2C, SPI protocols and sensor integration
+            </li>
+            <li data-en="Rebuild industrial IoT prototypes under mentorship"
+                data-fa="بازسازی پروتوتایپ‌های IoT صنعتی تحت منتورشیپ">
+              Rebuild industrial IoT prototypes under mentorship
+            </li>
           </ul>
         </div>
       </section>
-    </div>
-  </div>
-
-  <div class="footer-note">
-    Updated: Dec 2025 • Dark Mode • Optimized for readability
+    </main>
   </div>
 </div>
+
+<!-- Controls -->
+<div class="controls">
+  <button class="control-btn" id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+  </button>
+  <button class="control-btn" id="langToggle" aria-label="Toggle language">
+    <i class="fas fa-language"></i>
+  </button>
+  <button class="control-btn" id="downloadPdf" aria-label="Download PDF">
+    <i class="fas fa-file-pdf"></i>
+  </button>
+</div>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const themeIcon = themeToggle.querySelector('i');
+  
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+  
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+  });
+  
+  function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+  }
+
+  // Language Toggle
+  const langToggle = document.getElementById('langToggle');
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLanguage(savedLang);
+  
+  langToggle.addEventListener('click', () => {
+    const currentLang = html.getAttribute('lang');
+    const newLang = currentLang === 'en' ? 'fa' : 'en';
+    setLanguage(newLang);
+    localStorage.setItem('lang', newLang);
+  });
+  
+  function setLanguage(lang) {
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+    
+    document.querySelectorAll('[data-en][data-fa]').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.textContent = text;
+    });
+  }
+
+  // Download PDF Button
+  const downloadPdf = document.getElementById('downloadPdf');
+  
+  downloadPdf.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    
+    // Add print-dark class if in dark mode
+    if (currentTheme === 'dark') {
+      document.body.classList.add('print-dark');
+    }
+    
+    // Trigger print dialog
+    window.print();
+    
+    // Remove print-dark class after print dialog closes
+    setTimeout(() => {
+      document.body.classList.remove('print-dark');
+    }, 1000);
+  });
+</script>
 
 </body>
 </html>
