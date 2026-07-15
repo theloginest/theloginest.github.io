@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mehran Samavat – Resume | IT Engineer</title>
+  <title>Mehran Samavat – Resume | Software Engineer</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Resume of Mehran Samavat - IT Engineer specializing in ASP.NET Core, IoT, Machine Learning, and Software Testing.">
-  <meta name="keywords" content="Mehran Samavat, ASP.NET Core, IoT, Machine Learning, ML.NET, Load Testing, Backend Developer">
+  <meta name="description" content="Resume of Mehran Samavat - Software Engineer specializing in .NET Backend, IoT Systems, and Quality Assurance.">
+  <meta name="keywords" content="Mehran Samavat, ASP.NET Core, IoT, Machine Learning, ML.NET, Load Testing, Backend Developer, Software Engineer">
   <meta name="author" content="Mehran Samavat">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Mehran Samavat – Resume">
-  <meta property="og:description" content="IT Engineer | ASP.NET Core, IoT & ML Developer">
+  <meta property="og:description" content="Software Engineer | .NET Backend • IoT Systems • Quality Assurance">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://theloginest.github.io">
   <meta property="og:image" content="https://theloginest.github.io/profile.webp">
@@ -145,9 +145,17 @@
     }
 
     .name-section .title {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--accent);
       font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .name-section .subtitle {
+      font-size: 13px;
+      color: var(--text-light);
+      font-weight: 400;
+      line-height: 1.4;
     }
 
     /* Contact Info */
@@ -321,6 +329,11 @@
       line-height: 1.8;
       color: var(--text);
       text-align: justify;
+      margin-bottom: 15px;
+    }
+
+    .summary-text:last-child {
+      margin-bottom: 0;
     }
 
     /* Experience Items */
@@ -408,7 +421,75 @@
       right: 0;
     }
 
-    /* Control Buttons */
+    /* Projects Section */
+    .project-item {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project-header {
+      margin-bottom: 12px;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .project-role {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .project-tech {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-tech-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .project-tech-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-tech-tag {
+      background: var(--section-bg);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+    }
+
+    /* Control Buttons - Fixed Position (Always Right) */
     .controls {
       position: fixed;
       top: 20px;
@@ -416,11 +497,7 @@
       display: flex;
       gap: 10px;
       z-index: 1000;
-    }
-
-    [dir="rtl"] .controls {
-      right: auto;
-      left: 20px;
+      direction: ltr; /* Always LTR for controls */
     }
 
     .control-btn {
@@ -435,6 +512,7 @@
       align-items: center;
       justify-content: center;
       font-size: 18px;
+      font-weight: 600;
       transition: all 0.3s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
@@ -444,6 +522,12 @@
       color: white;
       transform: translateY(-3px);
       box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Language Button Text */
+    .lang-btn {
+      font-size: 14px;
+      font-weight: 700;
     }
 
     /* Responsive */
@@ -462,6 +546,11 @@
         border-bottom: 1px solid var(--border);
       }
       
+      [dir="rtl"] aside.sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      
       .profile-pic {
         width: 120px;
         height: 120px;
@@ -470,11 +559,25 @@
       .name-section h1 {
         font-size: 22px;
       }
+      
+      .controls {
+        top: 10px;
+        right: 10px;
+      }
+      
+      .control-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+      
+      .lang-btn {
+        font-size: 12px;
+      }
     }
 
     /* ========================================
        PRINT STYLES - PDF EXPORT (A4 Portrait)
-       Optimized for Scale 100%
        ======================================== */
     @media print {
       @page {
@@ -558,8 +661,14 @@
       }
       
       .name-section .title {
-        font-size: 11px !important;
+        font-size: 12px !important;
         color: #0284c7 !important;
+        margin-bottom: 5px !important;
+      }
+      
+      .name-section .subtitle {
+        font-size: 9px !important;
+        color: #64748b !important;
       }
       
       .contact-section h3,
@@ -687,6 +796,7 @@
         line-height: 1.5 !important;
         color: #1e293b !important;
         text-align: justify !important;
+        margin-bottom: 8px !important;
       }
       
       .experience-item {
@@ -742,6 +852,49 @@
         color: #0284c7 !important;
       }
       
+      /* Projects Print Styles */
+      .project-item {
+        margin-bottom: 10px !important;
+        padding-bottom: 10px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        page-break-inside: avoid;
+      }
+      
+      .project-item:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      
+      .project-title {
+        font-size: 11px !important;
+        color: #1e293b !important;
+      }
+      
+      .project-role {
+        font-size: 10px !important;
+        color: #0284c7 !important;
+      }
+      
+      .project-description {
+        font-size: 9px !important;
+        line-height: 1.5 !important;
+        color: #1e293b !important;
+      }
+      
+      .project-tech-label {
+        font-size: 9px !important;
+        color: #64748b !important;
+      }
+      
+      .project-tech-tag {
+        background: #e0f2fe !important;
+        color: #0284c7 !important;
+        padding: 2px 5px !important;
+        font-size: 8px !important;
+        border: 1px solid #bae6fd !important;
+      }
+      
       /* Prevent page breaks in important sections */
       .profile-section,
       .contact-section,
@@ -777,6 +930,10 @@
       
       body.print-dark .name-section .title {
         color: #38bdf8 !important;
+      }
+      
+      body.print-dark .name-section .subtitle {
+        color: #94a3b8 !important;
       }
       
       body.print-dark .contact-section h3,
@@ -880,6 +1037,33 @@
       body.print-dark .experience-item {
         border-bottom-color: #475569 !important;
       }
+      
+      /* Projects Dark Print */
+      body.print-dark .project-title {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .project-role {
+        color: #38bdf8 !important;
+      }
+      
+      body.print-dark .project-description {
+        color: #e2e8f0 !important;
+      }
+      
+      body.print-dark .project-tech-label {
+        color: #94a3b8 !important;
+      }
+      
+      body.print-dark .project-tech-tag {
+        background: rgba(56, 189, 248, 0.15) !important;
+        color: #38bdf8 !important;
+        border-color: rgba(56, 189, 248, 0.2) !important;
+      }
+      
+      body.print-dark .project-item {
+        border-bottom-color: #475569 !important;
+      }
     }
 
     /* Animations */
@@ -908,7 +1092,8 @@
         </div>
         <div class="name-section">
           <h1 data-en="Mehran Samavat" data-fa="مهران سماوت">Mehran Samavat</h1>
-          <div class="title" data-en="Medior IT Engineer" data-fa="مهندس IT">Medior IT Engineer</div>
+          <div class="title" data-en="Software Engineer" data-fa="مهندس نرم‌افزار">Software Engineer</div>
+          <div class="subtitle" data-en=".NET Backend • IoT Systems • Quality Assurance" data-fa="بک‌اند دات‌نت • IoT سیستم‌های • تست نرم افزار">.NET Backend • IoT Systems • Quality Assurance</div>
         </div>
       </div>
 
@@ -1023,9 +1208,14 @@
       <section class="main-section">
         <h2><i class="fas fa-user"></i> <span data-en="About Me" data-fa="درباره من">About Me</span></h2>
         <p class="summary-text" 
-           data-en="Medior Backend Developer with 2+ years of experience in ASP.NET Core, specializing in building scalable server-side applications and RESTful APIs. Strong background in database design (SQL Server, MySQL) and embedded systems (STM32). Experienced in software quality assurance with focus on load and stress testing. Currently expanding expertise in Machine Learning using ML.NET to develop intelligent, data-driven solutions."
-           data-fa="توسعه‌دهنده بک‌اند با بیش از ۲ سال تجربه در ASP.NET Core، متخصص در ساخت اپلیکیشن‌های سمت سرور مقیاس‌پذیر و RESTful API. تسلط بر طراحی دیتابیس (SQL Server, MySQL) و سیستم‌های امبدد (STM32). تجربه در کنترل کیفیت نرم‌افزار با تمرکز بر تست بار و فشار. در حال حاضر در حال توسعه مهارت در یادگیری ماشین با ML.NET برای ساخت راه‌حل‌های هوشمند.">
-          Medior Backend Developer with 2+ years of experience in ASP.NET Core, specializing in building scalable server-side applications and RESTful APIs. Strong background in database design (SQL Server, MySQL) and embedded systems (STM32). Experienced in software quality assurance with focus on load and stress testing. Currently expanding expertise in Machine Learning using ML.NET to develop intelligent, data-driven solutions.
+           data-en="Software Engineer specializing in .NET backend development with hands-on experience in building commercial software solutions. I have worked on projects involving IoT systems and software testing, enabling me to collaborate effectively across different technical domains."
+           data-fa="مهندس نرم‌افزار با تمرکز بر توسعه بک‌اند مبتنی بر .NET و تجربه عملی در توسعه نرم‌افزارهای تجاری. در پروژه‌هایی مرتبط با سامانه‌های IoT و آزمون نرم‌افزار فعالیت داشته‌ام که این تجربه، همکاری مؤثر با متخصصان حوزه‌های مختلف را برایم ممکن کرده است.">
+          Software Engineer specializing in .NET backend development with hands-on experience in building commercial software solutions. I have worked on projects involving IoT systems and software testing, enabling me to collaborate effectively across different technical domains.
+        </p>
+        <p class="summary-text" 
+           data-en="I enjoy solving complex engineering problems by connecting technologies rather than working within a single domain. By combining backend development with knowledge of adjacent fields, I help build practical, scalable, and reliable software solutions for real-world applications."
+           data-fa="از حل مسائل پیچیده مهندسی با ایجاد ارتباط میان فناوری‌های مختلف لذت می‌برم، نه محدود شدن به یک حوزه تخصصی. با تکیه بر تخصص در توسعه بک‌اند و شناخت حوزه‌های مرتبط، تلاش می‌کنم راهکارهای نرم‌افزاری مقیاس‌پذیر، قابل‌اعتماد و کاربردی برای مسائل واقعی ارائه دهم.">
+          I enjoy solving complex engineering problems by connecting technologies rather than working within a single domain. By combining backend development with knowledge of adjacent fields, I help build practical, scalable, and reliable software solutions for real-world applications.
         </p>
       </section>
 
@@ -1101,17 +1291,63 @@
           </ul>
         </div>
       </section>
+
+      <!-- Projects -->
+      <section class="main-section">
+        <h2><i class="fas fa-laptop-code"></i> <span data-en="Projects" data-fa="پروژه‌ها">Projects</span></h2>
+        
+        <div class="project-item">
+          <div class="project-header">
+            <div class="project-title" data-en="CRM Platform" data-fa="سامانه مدیریت ارتباط با مشتری (CRM)">CRM Platform</div>
+            <div class="project-role" data-en="Backend Developer" data-fa="توسعه‌دهنده بک‌اند">Backend Developer</div>
+          </div>
+          <div class="project-description" 
+               data-en="Developed backend services for a commercial CRM platform, implementing business features and maintaining core modules."
+               data-fa="توسعه و نگهداری سرویس‌های بک‌اند یک سامانه تجاری CRM، پیاده‌سازی قابلیت‌های جدید و مشارکت در توسعه ماژول‌های اصلی سیستم.">
+            Developed backend services for a commercial CRM platform, implementing business features and maintaining core modules.
+          </div>
+          <div class="project-tech">
+            <span class="project-tech-label" data-en="Technologies:" data-fa="فناوری‌ها:">Technologies:</span>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">.NET</span>
+              <span class="project-tech-tag">Entity Framework Core</span>
+              <span class="project-tech-tag">SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div class="project-title" data-en="SMS Processing Platform" data-fa="سامانه مدیریت و پردازش پیامک">SMS Processing Platform</div>
+            <div class="project-role" data-en="Software Engineer" data-fa="مهندس نرم‌افزار">Software Engineer</div>
+          </div>
+          <div class="project-description" 
+               data-en="Designed an SMS processing platform with GSM modem integration, message parsing, and backend processing."
+               data-fa="طراحی و توسعه سامانه‌ای برای دریافت، پردازش و مدیریت پیامک با استفاده از مودم GSM، شامل تحلیل پیام‌ها و توسعه منطق پردازش در سمت بک‌اند.">
+            Designed an SMS processing platform with GSM modem integration, message parsing, and backend processing.
+          </div>
+          <div class="project-tech">
+            <span class="project-tech-label" data-en="Technologies:" data-fa="فناوری‌ها:">Technologies:</span>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">C#</span>
+              <span class="project-tech-tag">.NET</span>
+              <span class="project-tech-tag">SIM800</span>
+              <span class="project-tech-tag">SQL Server</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </div>
 
-<!-- Controls -->
+<!-- Controls - Fixed Position (Always Right) -->
 <div class="controls">
   <button class="control-btn" id="themeToggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
   </button>
-  <button class="control-btn" id="langToggle" aria-label="Toggle language">
-    <i class="fas fa-language"></i>
+  <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language">
+    EN
   </button>
   <button class="control-btn" id="downloadPdf" aria-label="Download PDF">
     <i class="fas fa-file-pdf"></i>
@@ -1140,7 +1376,7 @@
     themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
   }
 
-  // Language Toggle
+  // Language Toggle - Content direction changes, controls stay fixed
   const langToggle = document.getElementById('langToggle');
   const savedLang = localStorage.getItem('lang') || 'en';
   setLanguage(savedLang);
@@ -1154,8 +1390,13 @@
   
   function setLanguage(lang) {
     html.setAttribute('lang', lang);
+    // Change direction for content (not controls)
     html.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
     
+    // Update button text
+    langToggle.textContent = lang === 'en' ? 'EN' : 'FA';
+    
+    // Update all translatable elements
     document.querySelectorAll('[data-en][data-fa]').forEach(el => {
       const text = el.getAttribute(`data-${lang}`);
       if (text) el.textContent = text;
